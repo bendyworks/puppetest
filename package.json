@@ -1,0 +1,60 @@
+{
+  "name": "puppetest",
+  "version": "0.0.1",
+  "description": "A example configuration for creating and organizing e2e test powered by Puppeteer and Jest.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint -t codeFrame 'src/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "test": "jest",
+    "commit": "git-cz",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write --single-quote",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bendyworks/puppetest.git"
+  },
+  "keywords": [
+    "Jest",
+    "Puppeteer",
+    "NodeJs"
+  ],
+  "author": "Tristan Fitzgerald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bendyworks/puppetest/issues"
+  },
+  "homepage": "https://github.com/bendyworks/puppetest#readme",
+  "dependencies": {
+    "puppeteer": "^1.8.0",
+    "axios": "^0.18.0",
+    "jest": "^23.6.0",
+    "jest-puppeteer": "^3.4.0",
+    "faker": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/puppeteer": "^1.6.4",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.0-rc.15",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.0.3"
+  }
+}
